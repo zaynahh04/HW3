@@ -3,7 +3,7 @@ COMP272 Programming Assignment 3
 
 This repository is to be used for programming assignemnt #3. The Main.java file is the main driver which performs the testing. Do *NOT* modify this file. You must pass all supplied tests that are currently contained in the file Main.java to get full credit. 
 
-The AVLTree.java file is the source code for the AVL tree object. As described in the Assignemnt 3 (the provided PDF), you are to complete the private method DeleteElement. Read the comments in the prologue (comment block) of this method, as it discusses the logic that needs to be coded. On next Tuesday's class, we will discuss yet again, the logic if having issues, including walking through psuedo code. 
+The AVLTree.java file is the source code for the AVL tree object. As described in the Assignemnt 3 (the provided PDF), you are to complete the private method DeleteElement. Read the comments in the prologue (comment block) of this method, as it discusses the logic that needs to be coded. On next Tuesday's class, we will discuss yet again, the logic if having issues, including walking through psuedo code. Part of this exercise, is to undertsand ALL the AVL code in this object, including how rotation detections are identified, and how the rotations work (but this code is already written, so just make sure you understand it). 
 
 The TreeProblems.java file contains three methods that must be coded. These are not difficult and need to use the TreeSet and TreeMap classes, as appropriate, in the Java Collections Framework library. These are meant to get you more confortable using the library on-line documentation. And, to understand what public methods are available, and how to utilize select ones. 
 
