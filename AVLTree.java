@@ -1,6 +1,6 @@
 
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Zaynah Hussaini 001 ***
  *
  * This java file is a Java object implementing simple AVL Tree.
  * You are to complete the deleteElement method.
@@ -342,8 +342,50 @@ class LUC_AVLTree {
      */
 
     private Node deleteElement(int value, Node node) {
+        if (node == null) {
+            return null;
+        }
+        if (value < node.value) {
+            node.leftChild = deleteElement(value, node.leftChild);
+        }
+        else if (value > node.value) {
+            node.rightChild = deleteElement(value, node.rightChild);
+        }
+        else {
+            if (node.leftChild == null) {
+                return node.rightChild;
+            } else if (node.rightChild == null) {
+                return node.leftChild;
+            }
 
-        /*
+            Node temp = minValueNode(node.rightChild);
+            node.value = temp.value;
+            node.rightChild = deleteElement(temp.value, node.rightChild);
+        }
+        node.height = getMaxHeight(getHeight(node.leftChild), getHeight(node.rightChild)) + 1;
+
+        int balance = getBalanceFactor(node);
+
+        if (balance > 1 && getBalanceFactor(node.leftChild) >= 0) {
+            return LLRotation(node);
+        }
+        if (balance > 1 && getBalanceFactor(node.leftChild) < 0) {
+            return LRRotation(node);
+        }
+        if (balance < -1 && getBalanceFactor(node.rightChild) <= 0) {
+            return RRRotation(node);
+        }
+        if (balance < -1 && getBalanceFactor(node.rightChild) > 0) {
+            return RLRotation(node);
+        }
+
+        return node;
+    }
+
+
+
+
+            /*
          * ADD CODE HERE
          * 
          * NOTE, that you should use the existing coded private methods
@@ -362,8 +404,6 @@ class LUC_AVLTree {
          * do many of the same things as this method.
          */
 
-        return node;
-    }
 
 
     /**

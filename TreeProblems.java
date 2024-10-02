@@ -1,5 +1,5 @@
 /*
- * *** YOUR NAME GOES HERE / YOUR SECTION NUMBER ***
+ * *** Zaynah Hussaini 001 ***
  *
  * This java file contains several simple tree problems that need to be
  * codified. These routines  must use the TreeMap and TreeSet library
@@ -20,14 +20,18 @@ public class TreeProblems {
    */
   
   public static Set<Integer> different(Set<Integer> setA, Set<Integer> setB) {
+    TreeSet<Integer> toSetA = new TreeSet<>(setA);
+    toSetA.removeAll(setB);
 
-    // INSERT CODE HERE - DO NOT FORGET TO PLACE YOUR NAME ABOVE
-    //
+    TreeSet<Integer> toSetB = new TreeSet<> (setB);
+   toSetB.removeAll(setA);
+
+    toSetA.addAll(toSetB);
     // This can be done numerous ways, but once such will only that
     // *several* lines of code. Hint: create two temporary TreeSets and utilize the
     // methods retainAll(), addAll(), and removeAll(). But in the end, get something to work.
 
-    return setA;
+    return toSetA;
   }
 
 
@@ -39,8 +43,13 @@ public class TreeProblems {
    */
 
   public static void removeEven(Map<Integer, String> treeMap) {
-
-    // INSERT CODE HERE.
+    Iterator<Map.Entry<Integer, String>> iterator = treeMap.entrySet().iterator();
+    while(iterator.hasNext()) {
+      Map.Entry<Integer, String> entry = iterator.next();
+      if(entry.getKey() % 2 == 0) {
+        iterator.remove();
+      }
+    }
 
     return;
   }
@@ -54,11 +63,16 @@ public class TreeProblems {
    */
 
   public boolean treesEqual(Map<Integer, String> tree1,Map<Integer, String> tree2 ) {
-
+    if (tree1.size() != tree2.size()){
+      return false;
+    }
+    for(Map.Entry<Integer, String> entry:tree1.entrySet()) {
+      if(!tree2.containsKey(entry.getKey()) || !tree2.get(entry.getKey()).equals(entry.getValue())){
+        return false;
+      }
+    }
     // INSERT CODE HERE
+    return true;
 
-    return false;
-
-  }
-
-} // end treeProblems class
+}
+}// end treeProblems class
